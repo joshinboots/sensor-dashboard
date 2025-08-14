@@ -1,0 +1,3 @@
+sensor-dashboard
+*.o
+.DS_Store

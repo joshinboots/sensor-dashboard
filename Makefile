@@ -1,11 +1,13 @@
 APP = sensor-dashboard
-CFLAGS += `pkg-config --cflags gtk+-3.0` -O2 -Wall
-LDLIBS += `pkg-config --libs gtk+-3.0`
+PKG = gtk+-3.0
+
+CFLAGS  += $(shell pkg-config --cflags $(PKG)) -O2 -Wall
+LDLIBS  += $(shell pkg-config --libs $(PKG))
 
 all: $(APP)
 
 $(APP): sensor_dashboard.c
-	$(CC) $(CFLAGS) $< -o $@ $(LDLIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< $(LDLIBS)
 
 clean:
 	rm -f $(APP) *.o

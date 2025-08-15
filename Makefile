@@ -1,8 +1,8 @@
 APP = sensor-dashboard
 PKG = gtk+-3.0
 
-CFLAGS  += $(shell pkg-config --cflags $(PKG)) -O2 -Wall
-LDLIBS  += $(shell pkg-config --libs $(PKG))
+override CFLAGS += $(shell pkg-config --cflags $(PKG)) -O2 -Wall
+LDLIBS          += $(shell pkg-config --libs   $(PKG))
 
 all: $(APP)
 
